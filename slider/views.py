@@ -4,7 +4,7 @@ from slider.models import Slider,Position
 from .serializers import SliderSerializer,PositionSerializer
 # Create your views here.
 
-class PositionAPIView(ListAPIView):
+class PositionAPIView(ListAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView):
     queryset = Position.objects.all()
     serializer_class = PositionSerializer
 
