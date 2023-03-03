@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView,RetrieveAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListAPIView,RetrieveAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView,RetrieveUpdateAPIView
 from.models import Products,Category
 from .serializers import ProductSerializer,CategorySerializers
 from .permission import IsAuthorOrReadOnly
@@ -14,7 +14,7 @@ class ProductsAPIView(ListAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductSerializer
 
-class ProductSingleAPIView(ListAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView):
+class ProductSingleAPIView(RetrieveUpdateDestroyAPIView,CreateAPIView):
     # permission_classes = IsAuthorOrReadOnly
     queryset = Products.objects.all()
     serializer_class = ProductSerializer
