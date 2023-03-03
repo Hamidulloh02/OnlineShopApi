@@ -70,7 +70,7 @@ REST_FRAMEWORK = {
 }
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {"basic": {"type": "basic"}},
-    "USE_SESSION_AUTH": False,
+    "USE_SESSION_AUTH": True,
 }
 
 MIDDLEWARE = [
