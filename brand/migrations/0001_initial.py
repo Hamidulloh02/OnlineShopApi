@@ -14,19 +14,21 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Position',
+            name='Brand',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                ('brandname', models.CharField(max_length=100, verbose_name='Brand name')),
+                ('brandlogo', models.ImageField(blank=True, upload_to='images/')),
+                ('saytlink', models.URLField(blank=True, db_index=True, max_length=128, unique=True, verbose_name='Sayt link')),
+                ('brandinfo', ckeditor.fields.RichTextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Slider',
+            name='Brandimages',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', ckeditor.fields.RichTextField()),
-                ('poster', models.ImageField(blank=True, upload_to='images/', verbose_name='Upload images')),
-                ('position', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='slider.position', verbose_name='Position')),
+                ('image', models.ImageField(blank=True, null=True, upload_to='images/')),
+                ('post', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='brandimages', to='brand.brand')),
             ],
         ),
     ]

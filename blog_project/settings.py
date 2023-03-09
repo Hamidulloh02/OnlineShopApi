@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # mahally
     'slider',
     'product',
+    'brand',
     'corsheaders',
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
